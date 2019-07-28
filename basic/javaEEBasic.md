@@ -1,7 +1,7 @@
 ## servlet
-> 在Java Web程序中，Servlet主要负责接收用户请求HttpServletRequest,在doGet(),doPost()中做相应的处理，并将回应HttpServletResponse反馈给用户。Servlet可以设置初始化参数，供Servlet内部使用。
+> 在Java Web程序中，Servlet主要负责接收用户请求HttpServletRequest,然后调用service()方法做相应的处理，并将响应HttpServletResponse反馈给用户。Servlet可以设置初始化参数，供Servlet内部使用。
 
-> 一个Servlet类只会有一个实例，在它初始化时调用init()方法，销毁时调用destroy()方法。Servlet需要在web.xml中配置（MyEclipse中创建Servlet会自动配置），一个Servlet可以设置多个URL访问。Servlet不是线程安全，因此要谨慎使用类变量。
+> 一个Servlet类只会有一个实例，在它初始化时调用init()方法，销毁时调用destroy()方法。Servlet需要在web.xml中配置，一个Servlet可以设置多个URL访问。当并发访问同一个Servlet实例时，Servlet不是线程安全的，因此要谨慎使用实例变量，防止造成数据不一致，产生线程安全的问题。如果应用程序设计无法避免使用实例变量，那么使用**同步**来保护要使用的实例变量，但为保证系统的最佳性能，应该同步可用性最小的代码片段。
 
 ## 1.阐述Servlet和CGI的区别?
 **CGI的不足之处:**
